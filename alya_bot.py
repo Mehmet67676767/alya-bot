@@ -5,9 +5,9 @@ from gtts import gTTS
 import os, random, subprocess
 import whisper
 
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+API_ID = int(os.environ.get("API_ID", "27240578"))
+API_HASH = os.environ.get("API_HASH", "5dc3831cf1f862ee7aabfc16c750fc89")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7336757348:AAEcBMf1G7Xo6j6DzhzhIPyIJoZ4YaBc1jc")
 
 app = Client("alya_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 model = whisper.load_model("base")
