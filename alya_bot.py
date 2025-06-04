@@ -5,9 +5,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from gtts import gTTS
 import whisper
 
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+API_ID = int(os.environ.get("API_ID", "27240578"))
+API_HASH = os.environ.get("API_HASH", "5dc3831cf1f862ee7aabfc16c750fc89")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7336757348:AAEcBMf1G7Xo6j6DzhzhIPyIJoZ4YaBc1jc"))
 
 if not all([API_ID, API_HASH, BOT_TOKEN]):
     raise ValueError("API_ID, API_HASH ve BOT_TOKEN ortam değişkenleri ayarlanmalı!")
