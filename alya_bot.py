@@ -3,17 +3,15 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from gtts import gTTS
-import whisper
 
 API_ID = int(os.environ.get("API_ID", "27240578"))
 API_HASH = os.environ.get("API_HASH", "5dc3831cf1f862ee7aabfc16c750fc89")
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7336757348:AAEcBMf1G7Xo6j6DzhzhIPyIJoZ4YaBc1jc"))
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7336757348:AAEcBMf1G7Xo6j6DzhzhIPyIJoZ4YaBc1jc")
 
 if not all([API_ID, API_HASH, BOT_TOKEN]):
     raise ValueError("API_ID, API_HASH ve BOT_TOKEN ortam değişkenleri ayarlanmalı!")
 
 bot = Client("alya", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
-model = whisper.load_model("base")
 chat_mode = {}
 
 @bot.on_message(filters.command("start"))
@@ -55,10 +53,7 @@ async def tts(client, message):
 
 @bot.on_message(filters.voice)
 async def stt(client, message):
-    file = await message.download()
-    result = model.transcribe(file)
-    await message.reply(f"📝 Çözüm:
-{result['text']}")
+    await message.reply("🛑 Ses tanıma (STT) şu anda desteklenmiyor.")
 
 @bot.on_message(filters.command("tagall") & filters.group)
 async def tag_all(client, message):
